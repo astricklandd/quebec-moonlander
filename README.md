@@ -16,7 +16,7 @@ So that I am qualified to work on a capstone dev team (and get an awesome job)
 
 Narrative
 - Do the same stuff in Papa: CRUD.
-- Except this time, your VIEW (front end) is on our class repo: https://github.com/barrycumbie/laughing-sniffle
+- Except this time, your VIEW (front end) is on our class repo: [https://github.com/barrycumbie/laughing-sniffle] (https://github.com/barrycumbie/studious-robot)
 - Make sure you use SECRETS to not expose any db credentials
 
 Min Acceptance Critera
