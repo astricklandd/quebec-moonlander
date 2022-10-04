@@ -1,15 +1,18 @@
 # quebec-moonlander
 (https://gist.github.com/barrycumbie/978e0a8f517669733f61d44008e6924c)
 
-486🚀
+***
 
 Dev Lab QUEBEC
-User Story (👕 large)
+
+User Story (👕 large):
+
 As an individual dev
 
 I want to demonstrate a full stack data round trip
 
 So that I am qualified to work on a capstone dev team (and get an awesome job)
+***
 
 Narrative
 Do the same stuff in Papa: CRUD.
