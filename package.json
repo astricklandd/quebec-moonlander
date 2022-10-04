@@ -1,0 +1,26 @@
+{
+  "name": "quebec-moonlander",
+  "version": "1.0.0",
+  "description": "(https://gist.github.com/barrycumbie/978e0a8f517669733f61d44008e6924c)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astricklandd/quebec-moonlander.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/astricklandd/quebec-moonlander/issues"
+  },
+  "homepage": "https://github.com/astricklandd/quebec-moonlander#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mongodb": "^4.10.0",
+    "nodemon": "^2.0.20"
+  }
+}
