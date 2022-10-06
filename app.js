@@ -29,26 +29,27 @@ app.get('/', function (req, res) {
 
 // })
 
-app.listen(process.env.PORT || 3000,
-  () => console.log("Server is running on port:..." `${process.env.PORT}`));
-
-});
-
-// console.log('in app.js');
+// app.listen(process.env.PORT || 3000,
+//   () => console.log("Server is running on port:..." `${process.env.PORT}`));
 
 
+console.log('in app.js');
+// const result = collection.find();
+// console.log(result);
 client.connect(err => {
-  const collection = client.db("test").collection("devices");
+  const collection = client.db("dev-lab-papa").collection("sample_restaurants");
   console.log('connected');
-  console.log(err.message);
-  res.send('hello express from inside of client connect')
-  // perform actions on the collection object
-  client.close();
+  res.send('hello express from inside of client connect');
+  const result = collection.find();
+  console.log(result);
+  res.send(result);
   console.log('console log closed');
 });
-
+});
 
 // Below code should add to my mongo db
 // const collection = client.db("sample_mflix").collection("movies");
 // const favorite_movies = await collection.find({genres : ["Drama", "Fantasy"]});
 
+app.listen(process.env.PORT || 3000,
+  () => console.log(`server is running on port: ${process.env.PORT}` ));
