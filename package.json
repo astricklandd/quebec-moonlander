@@ -16,12 +16,16 @@
   "bugs": {
     "url": "https://github.com/astricklandd/quebec-moonlander/issues"
   },
+  "engines": {
+    "node": "18.x",
+    "npm": "8.x"
+},
   "homepage": "https://github.com/astricklandd/quebec-moonlander#readme",
   "dependencies": {
     "body-parser": "^1.20.1",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "mongodb": "^4.10.0",
     "nodemon": "^2.0.20"
   }
