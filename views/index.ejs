@@ -2,21 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>College Football Team Tracker</title>
-
+    <title>Milky Way</title>
   </head>
 
   <body>
-    <h1 data-position="header">Whats your favorite college football team?</h1>
-
+    <h1 data-position="header">Navigating the Milky Way</h1>
 
     <section data-position="add-quote">
-      <h2>Add Team</h2>
+      <h2>Add Planet/ Object in the Galaxy!</h2>
 
-      <form action="/planets" method="POST">
-        <input type="text" placeholder="team name" name="name" />
-        <input type="text" placeholder="team quote" name="hasRings" />
-        <button type="submit">Submit</button>
+      <form action="/result" method="POST">
+        <input type="text" placeholder="planet name" name="name" />
+        <input type="text" placeholder="True/ False: has rings?" name="hasRings" />
+        <button type="submit">Add Now!</button>
       </form>
     </section>
 
@@ -24,28 +22,30 @@
 <!-- teams with an S is the collection Name
 team is what my name is within the collection
 quote would be like orderFromSun for me -->
-    <h2> Teams </h2>
+
+
+    <h2> Planets in the Milky Way </h2>
     <ul class = "planets">
         <% for(var i = 0; i < planets.length; i++) {%>
         <li class = "planets">
             <span>Name: <%= planets[i].name %></span><br>
-            <span>Rings: <%= planets[i].hasRings %></span><br>
-            <form action="/updateplanets/<%= planets[i].name %>" method="post">
+             <span>Rings: <%= planets[i].hasRings %></span><br> 
+         <form action="/updatePlanets/<%= planets[i].name %>" method="post">
               <input type="submit" value = "Update" onClick="return confirm('This will update the selected planet.')" />
             </form>
-            <form action="/deleteplanets/<%= planets[i].hasRings %>" method="post">
+            <form action="/deletePlanets/<%= planets[i].hasRings %>" method="post">
               <input type="submit" value = "Delete" onClick="return confirm('This will delete the selected rings i guess.')" />
             </form>
             <div> <br> </div>
         </li>
         <% } %>
 
-    </section>
+    </section> 
     
-    <a target="blank" href="https://github.com/Kiikz/reach-quebec">Source Code</a>
+    <a target="blank" href="https://github.com/astricklandd/quebec-moonlander">Source Code</a>
     </html>
     
 
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
