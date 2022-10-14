@@ -13,29 +13,29 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs');
 
-  async function main(){
-    try {
-        // Connect to the MongoDB cluster
-         client.connect(err => {
-            const collection = client.db("sample_guides").collection("planets");
-            console.log('connected');
-            // console.log('console log closed');
-        });;
-        // Make the appropriate DB calls
-        databasesList = await client.db().admin().listDatabases();
-        console.log("Databases:");
-        databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-        posts = await client.db("sample_guides").collection("planets").find().toArray();
-        // const indxs = await client.db("sample_guides").collection("planets").indexes();
-        // console.log(indxs);
-        // console.log(posts); 
-        return posts; 
-        // return posts.findOne();
-    } catch (e) {
-        console.error(e);
-    } finally {
-        await client.close();
-    }
+async function main(){
+  try {
+      // Connect to the MongoDB cluster
+        client.connect();
+        const collection = client.db("sample_guides").collection("planets");
+        console.log('connected');
+          // console.log('console log closed');
+      
+      // Make the appropriate DB calls
+      //databasesList = await client.db().admin().listDatabases();
+      // console.log("Databases:");
+      // databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+      let posts = await collection.find().toArray();
+      // const indxs = await client.db("sample_guides").collection("planets").indexes();
+      // console.log(indxs);
+      // console.log(posts); 
+      return posts; 
+      // return posts.findOne();
+  } catch (e) {
+      console.error(e);
+  } finally {
+      // client.close();
+  }
 }
 // main().catch(console.error);
 
@@ -44,12 +44,12 @@ try{
 
   const result = await main().catch(console.error);
   console.log("results: ", result); 
-  // console.log("result name: ", result.name); 
+  // console.log("get / result name: ", result.name); 
 
+  if(!result) return false; 
 
   res.render('index', { 
     planets: result
-
   })
   //handle the array? EJS...
   // var mi = document.createElement("input");
@@ -68,9 +68,28 @@ try{
 } catch (e) {
   console.error(e);
 } finally {
-  // await client.close();
+  //  client.close();
 }
 });
+
+app.post('/result', async (req, res) => {
+
+  try {
+    console.log("req.body: ", req.body.name) 
+    client.connect; 
+    const collection = client.db("sample_guides").collection("planets");
+    await collection.insertOne( { name : req.body.name } );
+      
+    res.redirect('/');
+  }
+  catch(e){
+    console.log(e)
+  }
+  finally{
+    // client.close
+  }
+
+})
 
 // app.get('/retrieve', async function (req, res) {
 //     try {
