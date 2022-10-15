@@ -4,6 +4,7 @@
   "description": "(https://gist.github.com/barrycumbie/978e0a8f517669733f61d44008e6924c)",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
