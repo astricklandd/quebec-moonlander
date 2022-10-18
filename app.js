@@ -38,7 +38,7 @@ app.get('/', async (req, res) => {
 try{
 
   const result = await main().catch(console.error);
-  console.log("results: ", result); 
+  // console.log("results: ", result); 
   // console.log("get / result name: ", result.name); 
 
   if(!result) return false; 
@@ -76,11 +76,13 @@ app.post('/result', async (req, res) => {
 
 app.post('/deletePlanets/:name', async (req, res) => 
 {
+
+  console.log('req.params.name', req.params.name);
   try {
     client.connect; 
     const collection = client.db("sample_guides").collection("planets");
     await collection.findOneAndDelete( 
-        { name : req.body.name } )
+        { name : req.params.name } )
       
         res.redirect('/');
     
