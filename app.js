@@ -70,10 +70,28 @@ app.post('/result', async (req, res) => {
   }
   finally{
     // client.close
+  
   }
+}),
 
-})
-
+app.post('/deletePlanets/:name', async (req, res) => 
+{
+  try {
+    client.connect; 
+    const collection = client.db("sample_guides").collection("planets");
+    await collection.findOneAndDelete( 
+        { name : req.body.name } )
+      
+        res.redirect('/');
+    
+      } catch(e){
+        console.log(e)
+      }
+      finally{
+        // client.close
+      
+      }
+    })
 
 
 
