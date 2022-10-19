@@ -95,6 +95,35 @@ app.post('/deletePlanets/:name', async (req, res) =>
       }
     })
 
+    app.post('/updatePlanets/:name', async (req, res) => 
+    {
+    
+      console.log('req.params.name', req.params.name);
+      try {
+        client.connect; 
+        const collection = client.db("sample_guides").collection("planets");
+        await collection.findOneAndUpdate( 
+            { name : req.params.name },
+            {
+              $set: {
+                name: 'Updated Planet',
+                // quote: 'Woo Pig Sooie'
+                }
+            } 
+            
+            )
+          
+            res.redirect('/');
+        
+          } catch(e){
+            console.log(e)
+          }
+          finally{
+            // client.close
+          
+          }
+        })
+
 
 
 app.listen(PORT, console.log(`server is running on port: ${PORT}` ));

@@ -9,13 +9,13 @@ $(".delete").click(function(){
   
   })
   
-  // $(".update").click(function(){
-  //   console.log("update button clicked");
-  //   var id2 = $(this).attr("id");
+  $(".update").click(function(){
+    console.log("update button clicked");
+    var name = $(this).attr("name");
   
-  //   fetch(`teams/team_id:{id2}`, {
-  //     method: "put",
-  //     header: {'Content-Type': 'applications/json'}
-  //   })
+    fetch(`planets/planets_name:${name}`, {
+      method: "put",
+      header: {'Content-Type': 'applications/json'}
+    })
   
-  // })
+  })
